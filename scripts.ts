@@ -9,7 +9,9 @@ interface Veiculo {
     entrada: string;
 }
 
-function adicionar (veiculo: Veiculo) {
+renderizar();
+
+function adicionar (veiculo: Veiculo, salva?: boolean) {
 
     const newCar = document.createElement('tr')
 
@@ -22,7 +24,7 @@ function adicionar (veiculo: Veiculo) {
 
     patio?.appendChild(newCar);
 
-    salvar([...ler(), veiculo])
+    if(salva) salvar([...ler(), veiculo])
 
 }
 
@@ -30,7 +32,7 @@ function remover () {
 
 }
 
-function ler () {
+function ler ():Veiculo[] {
     return localStorage.patio ? JSON.parse(localStorage.patio) : [];
 }
 
@@ -39,6 +41,16 @@ function salvar (veiculo: Veiculo[]) {
 
 }
 
+function renderizar (){
+    if(patio == null) return //Se não existir pátio, a função para aqui, isso acaba com o problema de chegar patio = null na linha abaixo;
+    patio.innerHTML = "";
+    const innerPatio = ler();
+    if(innerPatio.length){
+        innerPatio.forEach(veiculo => {
+            adicionar(veiculo)
+        });
+    }
+}
 
 
 
@@ -58,6 +70,7 @@ registrar?.addEventListener('click',()=>{
     console.log(`Nome: ${nome}; Placa: ${placa}`);
     console.log(new Date());
         
-    adicionar({nome, placa, entrada})
+    adicionar({nome, placa, entrada}, true)
+
     
 })

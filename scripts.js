@@ -11,11 +11,13 @@ var registrar = document.querySelector("#registrar"); //botão de registrar
 var inputNome = document.querySelector("#input-nome"); //input de nome
 var inputPlaca = document.querySelector("#input-placa"); //input de placa
 var patio = document.querySelector("#patio"); //tabela de pátio
-function adicionar(veiculo) {
+renderizar();
+function adicionar(veiculo, salva) {
     var newCar = document.createElement('tr');
     newCar.innerHTML = "\n    <td>".concat(veiculo.nome, "</td>\n    <td>").concat(veiculo.placa, "</td>\n    <td>").concat(veiculo.entrada, "</td>\n    <td><button class=\"delete \"data-placa=\"").concat(veiculo.placa, "\">X</button\"></td>\n    ");
     patio === null || patio === void 0 ? void 0 : patio.appendChild(newCar);
-    salvar(__spreadArray(__spreadArray([], ler(), true), [veiculo], false));
+    if (salva)
+        salvar(__spreadArray(__spreadArray([], ler(), true), [veiculo], false));
 }
 function remover() {
 }
@@ -24,6 +26,17 @@ function ler() {
 }
 function salvar(veiculo) {
     localStorage.setItem("patio", JSON.stringify(veiculo));
+}
+function renderizar() {
+    if (patio == null)
+        return; //Se não existir pátio, a função para aqui, isso acaba com o problema de chegar patio = null na linha abaixo;
+    patio.innerHTML = "";
+    var innerPatio = ler();
+    if (innerPatio.length) {
+        innerPatio.forEach(function (veiculo) {
+            adicionar(veiculo);
+        });
+    }
 }
 registrar === null || registrar === void 0 ? void 0 : registrar.addEventListener('click', function () {
     console.log("add");
@@ -38,5 +51,7 @@ registrar === null || registrar === void 0 ? void 0 : registrar.addEventListener
     var entrada = new Date().toString();
     console.log("Nome: ".concat(nome, "; Placa: ").concat(placa));
     console.log(new Date());
-    adicionar({ nome: nome, placa: placa, entrada: entrada });
+    adicionar({ nome: nome, placa: placa, entrada: entrada }, true);
+    nome = '';
+    placa = '';
 });
