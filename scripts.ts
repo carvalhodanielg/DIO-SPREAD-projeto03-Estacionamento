@@ -6,7 +6,16 @@ const patio = document.querySelector("#patio") //tabela de pátio
 interface Veiculo {
     nome: string;
     placa: string;
-    entrada: string;
+    entrada: Date | string;
+}
+
+function calcTempo (mil: number){
+    const horas = Math.ceil(mil/3600000); //retorna o equivalente em horas inteiras, ex.: 1min => 1h; 30min => 1h; 59min => 1h; 61min => 2h;
+    const min = Math.floor(mil/60000);
+    const sec = Math.floor(mil%60000);
+        
+    return `Estacionado por ${min}min e ${sec}segundos, resultando em ${horas}horas.`
+
 }
 
 renderizar();
@@ -20,7 +29,11 @@ function adicionar (veiculo: Veiculo, salva?: boolean) {
     <td>${veiculo.placa}</td>
     <td>${veiculo.entrada}</td>
     <td><button class="delete "data-placa="${veiculo.placa}">X</button"></td>
-    `
+    `;
+
+    newCar.querySelector(".delete")?.addEventListener('click', function(){
+        remover(this.dataset.placa)
+    })
 
     patio?.appendChild(newCar);
 
@@ -28,8 +41,15 @@ function adicionar (veiculo: Veiculo, salva?: boolean) {
 
 }
 
-function remover () {
+function remover (placa: string) {
+    const {entrada, nome} = ler().find(veiculo => veiculo.placa == placa);
+    const tempo = calcTempo(new Date().getTime() - new Date(entrada).getTime());
 
+    if(!confirm(`O veículo ${nome} permaneceu por ${tempo}. Deseja encerrar?`)) return;
+
+    salvar(ler().filter(veiculo => veiculo.placa !== placa))
+
+    renderizar();
 }
 
 function ler ():Veiculo[] {
@@ -65,7 +85,7 @@ registrar?.addEventListener('click',()=>{
 
     let nome: string = inputNome.value;
     let placa: string = inputPlaca.value;
-    let entrada: string = new Date().toString();
+    let entrada: string = new Date().toISOString();
 
     console.log(`Nome: ${nome}; Placa: ${placa}`);
     console.log(new Date());

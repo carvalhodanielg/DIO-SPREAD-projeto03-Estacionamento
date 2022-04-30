@@ -11,15 +11,31 @@ var registrar = document.querySelector("#registrar"); //botão de registrar
 var inputNome = document.querySelector("#input-nome"); //input de nome
 var inputPlaca = document.querySelector("#input-placa"); //input de placa
 var patio = document.querySelector("#patio"); //tabela de pátio
+function calcTempo(mil) {
+    var horas = Math.ceil(mil / 3600000); //retorna o equivalente em horas inteiras, ex.: 1min => 1h; 30min => 1h; 59min => 1h; 61min => 2h;
+    var min = Math.floor(mil / 60000);
+    var sec = Math.floor(mil % 60000);
+    return "Estacionado por ".concat(min, "min e ").concat(sec, "segundos, resultando em ").concat(horas, "horas.");
+}
 renderizar();
 function adicionar(veiculo, salva) {
+    var _a;
     var newCar = document.createElement('tr');
     newCar.innerHTML = "\n    <td>".concat(veiculo.nome, "</td>\n    <td>").concat(veiculo.placa, "</td>\n    <td>").concat(veiculo.entrada, "</td>\n    <td><button class=\"delete \"data-placa=\"").concat(veiculo.placa, "\">X</button\"></td>\n    ");
+    (_a = newCar.querySelector(".delete")) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function () {
+        remover(this.dataset.placa);
+    });
     patio === null || patio === void 0 ? void 0 : patio.appendChild(newCar);
     if (salva)
         salvar(__spreadArray(__spreadArray([], ler(), true), [veiculo], false));
 }
-function remover() {
+function remover(placa) {
+    var _a = ler().find(function (veiculo) { return veiculo.placa == placa; }), entrada = _a.entrada, nome = _a.nome;
+    var tempo = calcTempo(new Date().getTime() - new Date(entrada).getTime());
+    if (!confirm("O ve\u00EDculo ".concat(nome, " permaneceu por ").concat(tempo, ". Deseja encerrar?")))
+        return;
+    salvar(ler().filter(function (veiculo) { return veiculo.placa !== placa; }));
+    renderizar();
 }
 function ler() {
     return localStorage.patio ? JSON.parse(localStorage.patio) : [];
@@ -48,10 +64,8 @@ registrar === null || registrar === void 0 ? void 0 : registrar.addEventListener
         return;
     var nome = inputNome.value;
     var placa = inputPlaca.value;
-    var entrada = new Date().toString();
+    var entrada = new Date().toISOString();
     console.log("Nome: ".concat(nome, "; Placa: ").concat(placa));
     console.log(new Date());
     adicionar({ nome: nome, placa: placa, entrada: entrada }, true);
-    nome = '';
-    placa = '';
 });
