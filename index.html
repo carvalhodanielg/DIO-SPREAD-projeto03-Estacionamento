@@ -8,15 +8,31 @@
 </head>
 <body>
 
-    <H3>Hello!!</H3>
 
-    <Input id="input" type="text" value="" placeholder="Add here, mf"></Input>
-    <button id="button" value="click">Click</button>
+    <Input id="input-nome" type="text" value="" placeholder="Nome do veículo"></Input>
+    <Input id="input-placa" type="text" value="" placeholder="Placa do veículo"></Input>
+    <button id="registrar" value="click">Registrar</button>
 
-    <ul id="list">
+    <table>
+        <thead>
+            <tr>
+                <th>Veículo</th>
+                <th>Placa</th>
+                <th>Entrada</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
 
+        <tbody id="patio">
+            <tr>
+                <td>Carro 1</td>
+                <td>HFLA123</td>
+                <td>Hoje</td>
+                <td><button>X</button></td>
+            </tr>
+        </tbody>
+    </table>
 
-    </ul>
 
  <script src="./scripts.js"></script>   
 </body>
