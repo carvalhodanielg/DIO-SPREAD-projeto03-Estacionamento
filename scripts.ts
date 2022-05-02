@@ -10,12 +10,18 @@ interface Veiculo {
 }
 
 function calcTempo (mil: number){
-    const horas = Math.ceil(mil/3600000); //retorna o equivalente em horas inteiras, ex.: 1min => 1h; 30min => 1h; 59min => 1h; 61min => 2h;
-    const min = Math.floor(mil/60000);
-    const sec = Math.floor(mil%60000);
-        
-    return `Estacionado por ${min}min e ${sec}segundos, resultando em ${horas}horas.`
 
+    const horas = Math.ceil(mil/3600000); //retorna o equivalente em horas inteiras, ex.: 1min => 1h; 30min => 1h; 59min => 1h; 61min => 2h;
+    const totalSec = (mil/1000)
+    const sec = Math.floor(totalSec%60)  
+    const min = Math.floor(totalSec/60)
+
+    
+    if(min<60){
+        return `no estacionamento por ${min} min e ${sec} segundos, resultando em ${horas} ${horas>1 ? 'horas' : 'hora'} ${totalSec}.`
+    }else{
+        return `no estacionamento ${horas} horas.`
+    }
 }
 
 renderizar();
@@ -71,8 +77,6 @@ function renderizar (){
         });
     }
 }
-
-
 
 registrar?.addEventListener('click',()=>{
     console.log("add");

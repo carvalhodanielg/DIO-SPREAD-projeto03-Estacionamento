@@ -13,9 +13,15 @@ var inputPlaca = document.querySelector("#input-placa"); //input de placa
 var patio = document.querySelector("#patio"); //tabela de pátio
 function calcTempo(mil) {
     var horas = Math.ceil(mil / 3600000); //retorna o equivalente em horas inteiras, ex.: 1min => 1h; 30min => 1h; 59min => 1h; 61min => 2h;
-    var min = Math.floor(mil / 60000);
-    var sec = Math.floor(mil % 60000);
-    return "Estacionado por ".concat(min, "min e ").concat(sec, "segundos, resultando em ").concat(horas, "horas.");
+    var totalSec = (mil / 1000);
+    var sec = Math.floor(totalSec % 60);
+    var min = Math.floor(totalSec / 60);
+    if (min < 60) {
+        return "no estacionamento por ".concat(min, " min e ").concat(sec, " segundos, resultando em ").concat(horas, " ").concat(horas > 1 ? 'horas' : 'hora', " ").concat(totalSec, ".");
+    }
+    else {
+        return "no estacionamento ".concat(horas, " horas.");
+    }
 }
 renderizar();
 function adicionar(veiculo, salva) {
