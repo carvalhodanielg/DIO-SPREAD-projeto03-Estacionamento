@@ -16,9 +16,9 @@ function calcTempo (mil: number){
     const sec = Math.floor(totalSec%60)  
     const min = Math.floor(totalSec/60)
 
-    
+    return `no estacionamento por ${min} min e ${sec} segundos, resultando em ${horas} ${horas>1 ? 'horas' : 'hora'}.`
     if(min<60){
-        return `no estacionamento por ${min} min e ${sec} segundos, resultando em ${horas} ${horas>1 ? 'horas' : 'hora'} ${totalSec}.`
+        return `no estacionamento por ${min} min e ${sec} segundos, resultando em ${horas} ${horas>1 ? 'horas' : 'hora'}.`
     }else{
         return `no estacionamento ${horas} horas.`
     }
@@ -39,7 +39,7 @@ function adicionar (veiculo: Veiculo, salva?: boolean) {
     <td>${veiculo.nome}</td>
     <td>${veiculo.placa}</td>
     <td>${data.getDay()+1}/${data.getMonth()+1}/${data.getFullYear()} às ${data.getHours()<10 ? "0"+ data.getHours():data.getHours() }:${data.getMinutes()<10? "0" + data.getMinutes():data.getMinutes()}</td>
-    <td><button class="delete "data-placa="${veiculo.placa}">X</button"></td>
+    <td><button class="delete "data-placa="${veiculo.placa}">Remover</button"></td>
     `;
 
     newCar.querySelector(".delete")?.addEventListener('click', function(){

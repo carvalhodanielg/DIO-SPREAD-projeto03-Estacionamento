@@ -16,8 +16,9 @@ function calcTempo(mil) {
     var totalSec = (mil / 1000);
     var sec = Math.floor(totalSec % 60);
     var min = Math.floor(totalSec / 60);
+    return "no estacionamento por ".concat(min, " min e ").concat(sec, " segundos, resultando em ").concat(horas, " ").concat(horas > 1 ? 'horas' : 'hora', ".");
     if (min < 60) {
-        return "no estacionamento por ".concat(min, " min e ").concat(sec, " segundos, resultando em ").concat(horas, " ").concat(horas > 1 ? 'horas' : 'hora', " ").concat(totalSec, ".");
+        return "no estacionamento por ".concat(min, " min e ").concat(sec, " segundos, resultando em ").concat(horas, " ").concat(horas > 1 ? 'horas' : 'hora', ".");
     }
     else {
         return "no estacionamento ".concat(horas, " horas.");
@@ -30,7 +31,7 @@ function adicionar(veiculo, salva) {
     inputPlaca.value = "";
     var newCar = document.createElement('tr');
     var data = new Date(veiculo.entrada);
-    newCar.innerHTML = "\n    <td>".concat(veiculo.nome, "</td>\n    <td>").concat(veiculo.placa, "</td>\n    <td>").concat(data.getDay() + 1, "/").concat(data.getMonth() + 1, "/").concat(data.getFullYear(), " \u00E0s ").concat(data.getHours() < 10 ? "0" + data.getHours() : data.getHours(), ":").concat(data.getMinutes() < 10 ? "0" + data.getMinutes() : data.getMinutes(), "</td>\n    <td><button class=\"delete \"data-placa=\"").concat(veiculo.placa, "\">X</button\"></td>\n    ");
+    newCar.innerHTML = "\n    <td>".concat(veiculo.nome, "</td>\n    <td>").concat(veiculo.placa, "</td>\n    <td>").concat(data.getDay() + 1, "/").concat(data.getMonth() + 1, "/").concat(data.getFullYear(), " \u00E0s ").concat(data.getHours() < 10 ? "0" + data.getHours() : data.getHours(), ":").concat(data.getMinutes() < 10 ? "0" + data.getMinutes() : data.getMinutes(), "</td>\n    <td><button class=\"delete \"data-placa=\"").concat(veiculo.placa, "\">Remover</button\"></td>\n    ");
     (_a = newCar.querySelector(".delete")) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function () {
         remover(this.dataset.placa);
     });
