@@ -9,6 +9,7 @@ body{
     width: 100%;
     margin: 0;
     background-color: #ffffff;
+    background-color: #f2f8ff;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -18,14 +19,22 @@ header{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
     margin-bottom: 50px;
-    background-color: #f2f8ff;
-    color: #3742fa;
+    background-color: #ff793f;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    border-bottom: 3px solid #3742fa;
+    border
+}
 
+header img{
+    width: 100px;
+    position: absolute;
+    left: 20px;
 }
 
 header h1{
+    
     font-size: 3rem;;
 }
 
@@ -136,6 +145,8 @@ table button{
     font-weight: 700;
     color: #fff;
     background-color: #3742fa;
+    border: none;
+
 }
 table button:hover{
 

@@ -17,12 +17,6 @@ function calcTempo(mil) {
     var sec = Math.floor(totalSec % 60);
     var min = Math.floor(totalSec / 60);
     return "no estacionamento por ".concat(min, " min e ").concat(sec, " segundos, resultando em ").concat(horas, " ").concat(horas > 1 ? 'horas' : 'hora', ".");
-    if (min < 60) {
-        return "no estacionamento por ".concat(min, " min e ").concat(sec, " segundos, resultando em ").concat(horas, " ").concat(horas > 1 ? 'horas' : 'hora', ".");
-    }
-    else {
-        return "no estacionamento ".concat(horas, " horas.");
-    }
 }
 renderizar();
 function adicionar(veiculo, salva) {
