@@ -17,11 +17,6 @@ function calcTempo (mil: number){
     const min = Math.floor(totalSec/60)
 
     return `no estacionamento por ${min} min e ${sec} segundos, resultando em ${horas} ${horas>1 ? 'horas' : 'hora'}.`
-    if(min<60){
-        return `no estacionamento por ${min} min e ${sec} segundos, resultando em ${horas} ${horas>1 ? 'horas' : 'hora'}.`
-    }else{
-        return `no estacionamento ${horas} horas.`
-    }
 }
 
 renderizar();
