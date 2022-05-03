@@ -8,22 +8,26 @@
 body{
     width: 100%;
     margin: 0;
-    background-color: #ffffff;
-    background-color: #f2f8ff;
     font-family: 'Roboto', sans-serif;
+    background-image: url('./images/back-transparent.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
+
+
 header{
-    height: 100px;
+    height: 70px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 50px;
     background-color: #ff793f;
     color: #fff;
     font-family: 'Inter', sans-serif;
-    border-bottom: 3px solid #3742fa;
+    /* border-bottom: 3px solid #3742fa; */
     border
 }
 
@@ -34,8 +38,9 @@ header img{
 }
 
 header h1{
-    
-    font-size: 3rem;;
+    font-size: 2rem;
+    margin-left: 5rem;
+
 }
 
 .main-container{
