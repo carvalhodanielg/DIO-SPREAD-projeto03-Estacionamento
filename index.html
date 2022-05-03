@@ -5,28 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 
+    <header>
+        <h1>Sistema de Estacionamento</h1>
+    </header>
 
-    <Input id="input-nome" type="text" value="" placeholder="Nome do veículo"></Input>
-    <Input id="input-placa" type="text" value="" placeholder="Placa do veículo"></Input>
-    <button id="registrar" value="click">Registrar</button>
+    <section class="main-container">
 
-    <table>
-        <thead>
-            <tr>
-                <th>Veículo</th>
-                <th>Placa</th>
-                <th>Entrada</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
+        <section class="main-section">
 
-        <tbody id="patio">
+            <div class="container-nome">
+                <label for="input-nome">Nome do Veículo</label>
+                <Input id="input-nome" type="text" value="" placeholder="Nome do veículo"></Input>
+            </div>
 
-        </tbody>
-    </table>
+            <div class="container-placa">
+                <label for="input-placa">Placa do Veículo</label>
+                <Input id="input-placa" type="text" value="" placeholder="Placa do veículo"></Input>
+            </div>
+
+            <div class="container-button">
+                <button id="registrar" value="click">Registrar</button>
+            </div>
+
+        </section>
+    
+        <section class="table-section">
+    
+            <table>
+                <thead>
+                    <tr>
+                        <th>Veículo</th>
+                        <th>Placa</th>
+                        <th>Entrada</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+        
+                <tbody id="patio">
+        
+                </tbody>
+            </table>
+    
+        </section>
+
+
+    </section>
+
+
+
 
 
  <script src="./scripts.js"></script>   
