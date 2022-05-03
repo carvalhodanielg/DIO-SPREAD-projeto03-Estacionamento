@@ -2,7 +2,6 @@
     margin: 0;
     box-sizing: border-box;
     padding: 0;
-
 }
 
 body{
@@ -12,10 +11,7 @@ body{
     background-image: url('./images/back-transparent.png');
     background-repeat: no-repeat;
     background-size: cover;
-
 }
-
-
 
 header{
     height: 70px;
@@ -27,8 +23,6 @@ header{
     background-color: #ff793f;
     color: #fff;
     font-family: 'Inter', sans-serif;
-    /* border-bottom: 3px solid #3742fa; */
-    border
 }
 
 header img{
@@ -40,7 +34,6 @@ header img{
 header h1{
     font-size: 2rem;
     margin-left: 5rem;
-
 }
 
 .main-container{
@@ -59,7 +52,6 @@ header h1{
     margin-right: 20px;
     height: 40px;
     width: 100%;
-
 }
 
 .main-section button{
@@ -74,13 +66,13 @@ header h1{
 
 .main-section button:hover{
     background-color: #3741fabd;
-
 }
 
 section label{
     font-size: 1.1rem;
     margin-bottom: 20px;
 }
+
 .container-nome{
     flex: 1;
     margin-right: 20px;
@@ -115,7 +107,6 @@ table{
     text-align: center;
     border: none;
     border-collapse: collapse;
-
 }
 
 table tr th{
@@ -128,15 +119,12 @@ table tr th{
 
 table tbody tr{
     height: 60px;
-
 }
 
 
 table tbody tr:hover{
     background-color: #ff793f;
 }
-
-
 
 table th{
     height: 30px;
@@ -151,10 +139,8 @@ table button{
     color: #fff;
     background-color: #3742fa;
     border: none;
-
 }
+
 table button:hover{
-
     background-color: #3741fabd;
-
 }

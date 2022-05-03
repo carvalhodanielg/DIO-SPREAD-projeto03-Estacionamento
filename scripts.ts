@@ -22,13 +22,11 @@ function calcTempo (mil: number){
 renderizar();
 
 function adicionar (veiculo: Veiculo, salva?: boolean) {
-    inputNome.value="";
-    inputPlaca.value="";
+    inputNome.value=""; //limpa o imput Nome ao adicionar o carro
+    inputPlaca.value=""; 
+
     const newCar = document.createElement('tr')
-
     let data = new Date(veiculo.entrada)
-
-
 
     newCar.innerHTML = `
     <td>${veiculo.nome}</td>

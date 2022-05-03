@@ -21,7 +21,7 @@ function calcTempo(mil) {
 renderizar();
 function adicionar(veiculo, salva) {
     var _a;
-    inputNome.value = "";
+    inputNome.value = ""; //limpa o imput Nome ao adicionar o carro
     inputPlaca.value = "";
     var newCar = document.createElement('tr');
     var data = new Date(veiculo.entrada);
