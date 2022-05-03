@@ -8,7 +8,8 @@
 body{
     width: 100%;
     margin: 0;
-    background-color: #ffffff
+    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
 }
 
 header{
@@ -33,11 +34,10 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 
 .main-section input{
-
     margin-right: 20px;
     height: 40px;
     width: 100%;
@@ -45,9 +45,8 @@ header{
 }
 
 .main-section button{
-
     height: 40px;
-
+    cursor: pointer;
 
 }
 
@@ -84,6 +83,8 @@ table{
     width: 100%;
     text-align: center;
     border: none;
+    border-collapse: collapse;
+
 }
 
 table tr th{
@@ -101,7 +102,6 @@ table tbody tr{
 
 table tbody tr:hover{
     height: 30px;
-    border-bottom: 2px solid black;
     background-color: #ff793f;
 }
 
@@ -115,4 +115,5 @@ table th{
 table button{
     width: 80%;
     height: 100%;
+    cursor: pointer;
 }

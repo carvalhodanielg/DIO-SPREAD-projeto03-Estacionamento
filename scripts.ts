@@ -27,13 +27,18 @@ function calcTempo (mil: number){
 renderizar();
 
 function adicionar (veiculo: Veiculo, salva?: boolean) {
-
+    inputNome.value="";
+    inputPlaca.value="";
     const newCar = document.createElement('tr')
+
+    let data = new Date(veiculo.entrada)
+
+
 
     newCar.innerHTML = `
     <td>${veiculo.nome}</td>
     <td>${veiculo.placa}</td>
-    <td>${veiculo.entrada}</td>
+    <td>${data.getDay()+1}/${data.getMonth()+1}/${data.getFullYear()} às ${data.getHours()<10 ? "0"+ data.getHours():data.getHours() }:${data.getMinutes()<10? "0" + data.getMinutes():data.getMinutes()}</td>
     <td><button class="delete "data-placa="${veiculo.placa}">X</button"></td>
     `;
 
