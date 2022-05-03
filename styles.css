@@ -76,4 +76,43 @@ header{
 
 /* table styles: */
 
+.table-section{
+    width: 100%;
+}
 
+table{
+    width: 100%;
+    text-align: center;
+    border: none;
+}
+
+table tr th{
+    height: 30px;
+    border-bottom: 2px solid black;
+    background-color: #0f4189;
+    color: #f2f8ff;
+}
+
+table tbody tr{
+    height: 30px;
+
+}
+
+
+table tbody tr:hover{
+    height: 30px;
+    border-bottom: 2px solid black;
+    background-color: #ff793f;
+}
+
+
+
+table th{
+    height: 30px;
+    border-bottom: 2px solid black;
+}
+
+table button{
+    width: 80%;
+    height: 100%;
+}
